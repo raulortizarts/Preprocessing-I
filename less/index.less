@@ -49,6 +49,7 @@ table {
 }
 
 /* Set every element's box-sizing to border-box */
+
 * {
     box-sizing: border-box;
 }
@@ -57,3 +58,274 @@ html, body {
     height: 100%;
 }
 
+// This is a mixin
+.flexcenterevenly {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-evenly;
+}
+
+// This is a mixin
+.hexatranform  {
+				width: 100%;
+				height: 100%;
+				background: blue;
+				background-position: center;
+				background-size: 100% 100%;
+				transform: rotate(-60deg)			;
+				-webkit-transform: rotate(-60deg)			;
+				-moz-transform: rotate(-60deg)			;
+				-ms-transform: rotate(-60deg)			;
+				-o-transform: rotate(-60deg)            ;
+				overflow: hidden;
+}
+
+//This is a variable
+
+@border: 1px solid black;
+
+.container{
+	width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+
+	@media(max-width: 500px) {
+			margin: 20px;
+			.flexcenterevenly ();
+
+	}
+
+	header{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		margin: 50px 0 30px;
+		padding-bottom: 60px;
+		border-bottom: @border;
+
+		@media(max-width: 500px) {
+			.flexcenterevenly ();
+		}
+
+		.top-navigation{
+			margin-top: 30px;
+			display: flex;
+			align-items: center;
+			
+			@media(max-width: 500px) {
+                    width: 100%;
+                    margin-top: 60px;
+                    .flexcenterevenly ();
+			}
+			
+			nav {
+
+				margin-left: 40px;
+				color: grey;
+				text-decoration: none;
+
+				@media(max-width: 500px) {
+					width: 100%;
+                    border-top: @border;
+                    border-width:1px 0;
+                    margin:0;
+                    padding:0;
+					text-align:center;
+					
+					a {
+						margin-left: 40px;
+						color: grey;
+						text-decoration: none;
+
+						@media(max-width: 500px) {
+							width: 100%;
+							margin-left: 0 ;
+							.flexcenterevenly ();
+							padding:10px;
+							border-bottom: @border;
+						}
+					}
+			
+				}	
+			}
+		}
+	}
+
+	h1 {
+		font-size: 80%;
+	
+	}
+
+	.header {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+
+		@media(max-width: 500px) {
+			.flexcenterevenly ();
+		}
+
+		.profile-pic{
+			width: 30%;
+	
+			.hexagon{
+			width: 100%;
+			margin: 20px;
+			background: red;
+			background-position: center;
+			transform: rotate(120deg)			;
+			-webkit-transform: rotate(120deg)			;
+			-moz-transform: rotate(120deg)			;
+			-ms-transform: rotate(120deg)			;
+			-o-transform: rotate(120deg)			;
+			overflow: hidden;
+			visibility: hidden;
+
+
+			.hexagon-inner {
+				.hexatranform ();
+				
+
+
+				.profile{
+					.hexatranform ();
+					visibility: visible;
+						
+					}
+				}
+
+			}
+		}
+
+		.left-header {
+			margin: 0 auto;
+			width: 379px;
+			text-align: center;
+			font-size: 80px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		
+
+			@media(max-width: 500px) {
+				width: 50%;
+				justify-content: space-evenly;
+			}
+
+		}
+	}
+
+	button {
+		height: 30px;
+		width: 140px;
+		margin: 20px;
+		border-radius: 15px;
+		background-color: silver;
+		border: @border;
+		font-size: 15px;
+	
+	}
+
+	p {
+		margin: 12px 0 12px;
+	
+	}    
+
+	a {
+		color: black;
+		text-decoration: none;
+	}
+
+	.upper-content {
+		margin: 30px 0 30px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+
+		@media(max-width: 500px) {
+			width: 100%;
+			margin: 30px 0 30px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+      	div {
+			width: 50%;
+			
+			@media(max-width: 500px) {
+				width: 100%;
+                    margin-bottom: 20px;
+					.flexcenterevenly ();
+			}
+			
+		
+		}
+	}    
+
+	.decorative {
+		width: 100%;
+	}
+
+    .lower-content {
+        margin: 30px 0 30px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+			   
+		@media(max-width: 500px) {
+			width: 100%;
+			margin: 30px 0 30px;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+    	div {
+				width: 30%;
+			   
+			   @media(max-width: 500px) {
+				width: 100%;
+                    margin-bottom: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+				}
+			}
+			
+			
+	}
+
+	footer {
+		margin-top: 10px;
+		border-top: @border;
+		
+		@media(max-width: 500px) {
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: column;
+        }
+
+		.footer-content {
+			margin-top: 30px;
+		
+			@media(max-width: 500px) {
+				width: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				flex-direction: column;
+			}
+		
+		}
+
+		.copyright {
+			margin: 60px;
+			text-align: center;
+		}
+	}
+		
+}
+
+
+            
